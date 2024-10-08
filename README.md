@@ -39,19 +39,76 @@ This project is a comprehensive Shop Management System developed using Spring Bo
     mvn spring-boot:run
     ```
 
-## API Endpoints
-- **Authentication**:
-    - `POST /api/auth/login`: Authenticate user and return JWT.
-- **Inventory**:
-    - `GET /api/inventory`: Get all inventory items.
-    - `POST /api/inventory`: Add a new inventory item.
-- **Sales**:
-    - `GET /api/sales`: Get all sales records.
-    - `POST /api/sales`: Record a new sale.
-- **Customers**:
-    - `GET /api/customers`: Get all customers.
-    - `POST /api/customers`: Add a new customer.
 
+
+## Order API Endpoints
+
+- **Create Order**:
+    - **Endpoint**: `POST ${api.prefix}/orders/order`
+    - **Description**: Create a new order for a specific user.
+    - **Response**: Returns the created order details if successful, otherwise returns a `500 Internal Server Error` status if an error occurs.
+
+- **Get Order by ID**:
+    - **Endpoint**: `GET ${api.prefix}/orders/{orderId}/order`
+    - **Description**: Retrieve the details of a specific order by its ID.
+    - **Response**: Returns the order details if found, otherwise returns a `404 Not Found` status.
+
+- **Get User Orders**:
+    - **Endpoint**: `GET ${api.prefix}/orders/{userId}/order`
+    - **Description**: Retrieve all orders for a specific user.
+    - **Response**: Returns the list of orders if found, otherwise returns a `404 Not Found` status.
+
+
+ ## User API Endpoints
+
+- **Get User by ID**:
+    - **Endpoint**: `GET ${api.prefix}/users/{userId}/user`
+    - **Description**: Retrieve the details of a specific user by their ID.
+    - **Response**: Returns the user details if found, otherwise returns a `404 Not Found` status.
+
+- **Create User**:
+    - **Endpoint**: `POST ${api.prefix}/users/add`
+    - **Description**: Create a new user with the provided details.
+    - **Response**: Returns the created user details if successful, otherwise returns a `409 Conflict` status if the user already exists.
+
+- **Update User**:
+    - **Endpoint**: `PUT ${api.prefix}/users/{userId}/update`
+    - **Description**: Update the details of an existing user by their ID.
+    - **Response**: Returns the updated user details if successful, otherwise returns a `404 Not Found` status if the user is not found.
+
+- **Delete User**:
+    - **Endpoint**: `DELETE ${api.prefix}/users/{userId}/delete`
+    - **Description**: Delete a specific user by their ID.
+    - **Response**: Returns a success message if the user is deleted, otherwise returns a `404 Not Found` status if the user is not found.
+
+
+ ## Cart API Endpoints
+
+- **Get Cart**:
+    - **Endpoint**: `GET ${api.prefix}/carts/{cartId}/my-cart`
+    - **Description**: Retrieve the details of a specific cart.
+    - **Response**: Returns the cart details if found, otherwise returns a `404 Not Found` status.
+
+- **Clear Cart**:
+    - **Endpoint**: `DELETE ${api.prefix}/carts/{cartId}/clear`
+    - **Description**: Clear all items from a specific cart.
+    - **Response**: Returns a success message if the cart is cleared, otherwise returns a `404 Not Found` status.
+
+- **Get Total Price**:
+    - **Endpoint**: `GET ${api.prefix}/carts/{cartId}/cart/total-price`
+    - **Description**: Retrieve the total price of items in a specific cart.
+    - **Response**: Returns the total price if the cart is found, otherwise returns a `404 Not Found` status.
+
+  
+## other  API Endpoints
+- **Categories**:
+
+- **Cart Items**:
+
+- **Sales**:
+
+- **Images**:
+ 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
